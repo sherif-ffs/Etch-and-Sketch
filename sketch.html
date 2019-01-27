@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<header>
+
+</header>
+<body>
+  <button type="button" name="button" id="clear" onClick="document.location.reload(true)"">clear</button>
+  <div class="container"></div>
+
+
+  <script type="text/javascript">
+    const grid = document.querySelector('.container');
+    let squares = 300;
+    const input = document.getElementById('in');
+
+
+    function changeColor(e) {
+          e.target.style.backgroundColor = 'black';
+        }
+
+    function makeSquare(n) {
+      while(grid.firstChild) {
+        grid.removeChild(grid.firstChild);
+      }
+      for (let i = 0; i <= n; i++) {
+        grid.appendChild(document.createElement('div'));
+
+      }
+
+      grid.childNodes.forEach(div =>
+        div.addEventListener('mouseenter', changeColor));
+    }
+
+
+    function makeSquares() {
+      let squareSel = prompt('How many squares per side?');
+
+        squares = squareSel;
+
+        grid.style.grid ='repeat(${squareSel}, auto) / repeat(${squareSel}, auto) '
+
+    }
+
+    function clear() {
+        grid.style.backgroundColor = '#f34f34';
+        div.style.backgroundColor = '#f34f34';
+    }
+
+makeSquare(squares);
+  </script>
+</body>
+
+
+</html>
+<style>
+  .container {
+    height: 650px;
+    width: 650px;
+    display: grid;
+    background-color: #f34f34;
+    grid: repeat(16, auto) / repeat(16, auto);
+    margin-left: 10vw;
+
+  }
+  div {
+    border: 1px dotted white;
+  }
+  button {
+    width: 100px;
+    height: 70px;
+    background-color: #f34f34;
+    color: white;
+    font-family: sans-serif;
+  }
+</style>
